@@ -1,0 +1,12 @@
+# Build output & cache
+target/
+data/uploads/
+data/preview-cache/
+*.log
+
+# IDE & OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db

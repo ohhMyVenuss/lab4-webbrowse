@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LTM Digital Campus · Lab 04</title>
+<style>
+:root{--ink:#17243e;--muted:#74839b;--blue:#526fe8;--line:#e8edf5;--bg:#f5f7fb;--teal:#15a68a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px 'Segoe UI',Arial,sans-serif;color:var(--ink)}
+header{background:var(--ink);color:#fff;padding:22px max(5vw,24px);display:flex;align-items:center;justify-content:space-between;gap:16px}header strong{font-size:19px;letter-spacing:.5px}header span{color:#bdcbe0;font-size:12px;letter-spacing:1px}
+.wrap{max-width:1180px;margin:38px auto;padding:0 24px}.hero{background:#fff;border:1px solid var(--line);border-radius:22px;padding:38px;display:grid;grid-template-columns:1.35fr .8fr;gap:30px;box-shadow:0 14px 40px #1a2b4b0a}.eyebrow{color:var(--blue);font-weight:800;font-size:11px;letter-spacing:1.5px}h1{font-size:36px;line-height:1.15;margin:13px 0;color:var(--ink)}p{line-height:1.7;color:var(--muted)}.cta{display:inline-block;background:var(--blue);color:white;text-decoration:none;padding:11px 17px;border-radius:10px;font-weight:700;margin:8px 8px 0 0}.cta.secondary{background:#edf1ff;color:#405fd7}.panel{background:#f4f7ff;border:1px solid #e6ebfb;border-radius:17px;padding:22px}.panel b{font-size:13px}.online{color:var(--teal);font-weight:800}.section-title{margin:30px 0 12px;font-size:18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;min-height:190px;display:flex;flex-direction:column}.icon{width:40px;height:40px;border-radius:12px;background:#edf1ff;display:grid;place-items:center;color:var(--blue);font-size:19px}.card h3{margin:14px 0 3px;font-size:16px}.card p{font-size:13px;margin:4px 0 14px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.link{display:inline-block;color:#405fd7;text-decoration:none;font-size:12px;font-weight:800;background:#f0f3ff;border-radius:8px;padding:8px 11px}.link:hover,.cta:hover{filter:brightness(.96)}.api{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;margin-top:18px}.api code{color:#526fe8;background:#f3f5ff;padding:3px 6px;border-radius:5px}footer{text-align:center;padding:28px;color:#9aa5b6;font-size:12px}
+@media(max-width:840px){.hero{grid-template-columns:1fr;padding:26px}.grid{grid-template-columns:1fr}h1{font-size:29px}header{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><strong>LTM DIGITAL CAMPUS</strong><span>HTTP SERVER · LAB 04 · LAN CONTENT SERVICE</span></header>
+<main class="wrap">
+<section class="hero">
+ <div><div class="eyebrow">NETWORK PROGRAMMING / 2026</div><h1>Nền tảng nội dung<br>học tập số</h1>
+ <p>Chào mừng bạn đến với Web Server thực hành Lập trình mạng. Nội dung trang và các tài nguyên bên dưới được phân phối qua HTTP từ máy Server trong mạng LAN. Ứng dụng Client có thể đọc PDF, phát MP3/MP4 và tải file.</p>
+ <a class="cta" href="/files/document.pdf">Mở tài liệu PDF →</a><a class="cta secondary" href="/api/history">Xem HTTP history</a></div>
+ <aside class="panel"><div class="eyebrow">SERVER STATUS</div><h2 class="online">● Online</h2><p>HTTP/1.1 · Port 8080<br>GET / HEAD / POST<br>Byte Range streaming<br>PDF · MP3 · MP4</p><b>Máy chủ sẵn sàng phục vụ nội dung.</b></aside>
+</section>
+<h2 class="section-title">Thư viện tài nguyên</h2>
+<section class="grid">
+ <article class="card"><div class="icon">▤</div><h3>Tài liệu PDF</h3><p>Tài liệu LTM hai trang, có thể mở trong PDF Viewer hoặc tải xuống.</p><div class="actions"><a class="link" href="/files/document.pdf">MỞ PDF</a><a class="link" href="/download/document.pdf">DOWNLOAD</a></div></article>
+ <article class="card"><div class="icon">♫</div><h3>Audio sample</h3><p>Đoạn âm thanh MP3 mẫu dài khoảng 9 giây, phát qua HTTP.</p><div class="actions"><a class="link" href="/files/music.mp3">MỞ MP3</a><a class="link" href="/download/music.mp3">DOWNLOAD</a></div></article>
+ <article class="card"><div class="icon">▶</div><h3>Video sample</h3><p>Video MP4 H.264/AAC 1280×720, hỗ trợ HTTP Range request.</p><div class="actions"><a class="link" href="/files/video.mp4">MỞ MP4</a><a class="link" href="/download/video.mp4">DOWNLOAD</a></div></article>
+</section>
+<section class="grid" style="margin-top:16px">
+ <article class="card"><div class="icon">⇧</div><h3>HTTP Upload</h3><p>Client gửi tệp bằng POST; Server lưu vào <code>data/uploads</code>.</p><div class="actions"><a class="link" href="/files/sample.txt">SAMPLE TEXT</a></div></article>
+ <article class="card"><div class="icon">⌁</div><h3>HTTP Inspector</h3><p>Client có thể kiểm tra status, response headers và body.</p><div class="actions"><a class="link" href="/api/history">GET HISTORY API</a></div></article>
+ <article class="card"><div class="icon">⇄</div><h3>Range Requests</h3><p>Server trả <code>206 Partial Content</code> khi Client yêu cầu một đoạn dữ liệu.</p><div class="actions"><a class="link" href="/download/sample.txt">DOWNLOAD SAMPLE</a></div></article>
+</section>
+<section class="api"><b>Endpoint phục vụ kiểm thử</b><p><code>GET /</code> · <code>HEAD /files/document.pdf</code> · <code>POST /api/login</code> · <code>POST /api/upload</code> · <code>GET /api/history</code> · <code>GET /download/{filename}</code></p></section>
+</main>
+<footer>© 2026 LTM Network Lab · Demo service running on your LAN</footer>
+</body></html>
